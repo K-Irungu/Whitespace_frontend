@@ -11,9 +11,8 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { mainListItems, secondaryListItems, avatar } from '../components/ListItems';
-import Navbar from '../components/Navbar';
-
+import { mainListItems2, secondaryListItems2, avatar2 } from './ListItems';
+import Navbar from './Navbar';
 
 const drawerWidth = 240;
 
@@ -52,7 +51,7 @@ function DashboardContent() {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Navbar />
+      <Navbar user="student"/>
       <Box sx={{ display: 'flex' }}>
         <Drawer variant="permanent" open={open}>
           <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: [2.3] }} >
@@ -63,14 +62,14 @@ function DashboardContent() {
           </Toolbar>
           
           <List component="nav">
-            {avatar}
+            {avatar2}
           </List>
           <Divider />
 
           <List component="nav">
-            {mainListItems}
+            {mainListItems2}
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            {secondaryListItems2}
           </List>
         </Drawer>
 
@@ -90,7 +89,7 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-
+              {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
@@ -100,7 +99,7 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-
+                  {/* <Chart /> */}
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
@@ -113,13 +112,13 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-
+                  {/* <Deposits /> */}
                 </Paper>
               </Grid>
               {/* Students */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-
+                  {/* <Orders /> */}
                 </Paper>
               </Grid>
             </Grid>
@@ -130,6 +129,6 @@ function DashboardContent() {
   );
 }
 
-export default function Home() {
+export default function Student() {
   return <DashboardContent />;
 }
