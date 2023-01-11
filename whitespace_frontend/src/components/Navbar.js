@@ -7,36 +7,34 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import GroupsIcon from '@mui/icons-material/Groups';
 
-function Navbar(user) {
+function Navbar(props) {
   const pages = ['Home', 'About', 'Reviews', 'Contact'];
 
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar sx={{justifyContent:"space-between"}} >
+        <Toolbar sx={{justifyContent:"space-around"}} >
     
           {/* Logo and App Name */}
           <Box sx={{display: "flex", flexDirection:"row"}}>
-            <GroupsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3, my:0.5}} />
+            <GroupsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 5, my:0.5}} />
             <Typography variant="h6" noWrap component="a" href="/" sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit', textDecoration: 'none' }}> WHITESPACE </Typography>
           </Box>
 
           {/* Nav List */}
-          <Box sx={{ flexGrow: 1, display: { md: 'flex'}, justifyContent:"center" }}>
-            { pages.map((page) => ( <Button href={page} key={page} sx={{ my: 2, mx:3, color: 'white', display: 'block' }}> {page} </Button> )) }
+          <Box sx={{ flexGrow: 1, display: { md: 'flex'}, justifyContent:"center"}}>
+            { pages.map((page) => ( <Button href={page} key={page} sx={{ my: 2, mx:5, color: 'white', display: 'block' }}> {page} </Button> )) }
           </Box>
+
+          { props.props === "login"? 
+          null
+            :
+            <Box >
+            <Button href="/login" variant="outlined" sx={{ my: 2, mx: 2, color: 'white', display: 'block', borderColor:"white" }}> Login </Button> 
+          </Box>
+          }
           
-          {/* Sign Up, Login and Logout Buttons */}
-          <Box sx={{display: "flex", flexDirection:"row"}}>
-            { user.user === "supervisor" || user.user === "student"? 
-              <Button variant="outlined" size="small" sx={{borderColor:"white", color:"white", mr: 5}}>Logout</Button>
-                :
-              <>
-              <Button href="/signup" variant="outlined" size="small" sx={{borderColor:"white", color:"white", mr: 5}}>Sign up</Button>
-              <Button href="/signin" variant="outlined" size="small" sx={{borderColor:"white", color:"white", mr:5}}>Login</Button>
-              </>
-            }
-          </Box>
+          
 
         </Toolbar>
       </Container>
