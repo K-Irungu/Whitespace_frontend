@@ -23,7 +23,6 @@ function App() {
         <Route path="/student" component={Student} />
         <Route path="/login" component={Login} />
       </Switch>
-
     </Router>
 
   );
