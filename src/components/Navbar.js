@@ -13,8 +13,7 @@ function Navbar(props) {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar sx={{justifyContent:"space-around"}} >
-    
+        <Toolbar sx={{justifyContent:"space-evenly"}} >
           {/* Logo and App Name */}
           <Box sx={{display: "flex", flexDirection:"row"}}>
             <GroupsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 5, my:0.5}} />
@@ -22,20 +21,17 @@ function Navbar(props) {
           </Box>
 
           {/* Nav List */}
-          <Box sx={{ flexGrow: 1, display: { md: 'flex'}, justifyContent:"center"}}>
+          <Box sx={{ flexGrow: 1, display: { md: 'flex'}, ml:20}}>
             { pages.map((page) => ( <Button href={page} key={page} sx={{ my: 2, mx:5, color: 'white', display: 'block' }}> {page} </Button> )) }
           </Box>
 
           { props.props === "login"? 
           null
             :
-            <Box >
-            <Button href="/login" variant="outlined" sx={{ my: 2, mx: 2, color: 'white', display: 'block', borderColor:"white" }}> Login </Button> 
+          <Box >
+            <Button href="/login" variant="outlined" sx={{ my: 2, color: 'white', display: 'block', borderColor:"white", mr:2}}> Login </Button> 
           </Box>
           }
-          
-          
-
         </Toolbar>
       </Container>
     </AppBar>
