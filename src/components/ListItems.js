@@ -5,66 +5,11 @@ import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
-export const mainListItems = (
-  <React.Fragment>
-    <ListItemButton>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Tasks" />
-    </ListItemButton>
-  </React.Fragment>
-);
-
-export const mainListItems2 = (
-    <React.Fragment>
-      <ListItemButton>
-        <ListItemIcon>
-          <DashboardIcon />
-        </ListItemIcon>
-        <ListItemText primary="Tasks" />
-      </ListItemButton>
-    </React.Fragment>
-  );
-
-export const secondaryListItems = (
-  <React.Fragment>
-    <ListItemButton>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Students" />
-    </ListItemButton>
-
-  </React.Fragment>
-);
+import { Divider } from '@mui/material';
 
 
-export const secondaryListItems2 = (
-    <React.Fragment>
-      <ListItemButton>
-        <ListItemIcon>
-          <AssignmentIcon />
-        </ListItemIcon>
-        <ListItemText primary="Supervisor" />
-      </ListItemButton>
-    </React.Fragment>
-  );
 
-export const avatar = (
-    <React.Fragment>
-        <ListItemButton>
-            <ListItemIcon>
-                <AccountCircleIcon />
-            </ListItemIcon>
-            <ListItemText>
-                Supervisor 1
-            </ListItemText>
-        </ListItemButton>
 
-    </React.Fragment>
-)
 
 export const avatar2 = (
     <React.Fragment>
@@ -80,3 +25,72 @@ export const avatar2 = (
     </React.Fragment>
 
 )
+
+// export const avatar = (
+//   <React.Fragment>
+//       <ListItemButton>
+//           <ListItemIcon>
+//               <AccountCircleIcon />
+//           </ListItemIcon>
+//           <ListItemText>
+//               Supervisor 1
+//           </ListItemText>
+//       </ListItemButton>
+
+//   </React.Fragment>
+// )
+
+// export const mainListItems = (
+//   <React.Fragment>
+//     <ListItemButton onClick={(event)=>console.log(event.target.textContent)}>
+//       <ListItemIcon>
+//         <DashboardIcon />
+//       </ListItemIcon>
+//       <ListItemText primary="My Tasks" />
+//     </ListItemButton>
+
+//     <Divider sx={{ my: 1 }} />
+
+//     <ListItemButton>
+//       <ListItemIcon>
+//         <AssignmentIcon />
+//       </ListItemIcon>
+//       <ListItemText primary="My Students" />
+//     </ListItemButton>
+
+//     <Divider sx={{ my: 1 }} />
+    
+//     <ListItemButton>
+//       <ListItemIcon>
+//         <AssignmentIcon />
+//       </ListItemIcon>
+//       <ListItemText primary="Lecturers" />
+//     </ListItemButton>
+
+//   </React.Fragment>
+// );
+
+export const mainListItems2 = (
+    <React.Fragment>
+
+      <ListItemButton>
+        <ListItemIcon> <DashboardIcon /></ListItemIcon>
+        <ListItemText primary="My Tasks" />
+      </ListItemButton>
+
+      <Divider sx={{ my: 1 }} />
+
+      <ListItemButton>
+        <ListItemIcon> <AssignmentIcon /></ListItemIcon>
+        <ListItemText primary="My Supervisors" />
+      </ListItemButton>
+
+      <Divider sx={{ my: 1 }} />
+
+      <ListItemButton>
+        <ListItemIcon> <AssignmentIcon /></ListItemIcon>
+        <ListItemText primary="My Lecturers" />
+      </ListItemButton>
+    </React.Fragment>
+  );
+

@@ -14,12 +14,12 @@ function App() {
     <Router>
       <CssBaseline />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/Home" component={Home} />
+        <Route exact path="/" component={Supervisor} />
+        <Route path="/Home" component={Supervisor} />
         <Route path="/About" component={About} />
         <Route path="/Reviews" component={Reviews} />
         <Route path="/Contact" component={Contact} />
-        <Route path="/supervisor" component={Supervisor} />
+        {/* <Route path="/supervisor" component={Supervisor} /> */}
         <Route path="/student" component={Student} />
         <Route path="/login" component={Login} />
       </Switch>

@@ -132,3 +132,25 @@
 // export default function Student() {
 //   return <DashboardContent />;
 // }
+
+
+        {/* Drawer on left side */}
+        {/* <Drawer variant="permanent" open={open}>
+          <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: [2.3] }} >
+
+            <IconButton onClick={toggleDrawer}>
+            {open? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+          </Toolbar>
+          
+          <List component="nav">
+            {avatar}
+          </List>
+          <Divider />
+
+          <List component="nav">
+            {mainListItems}
+            <Divider sx={{ my: 1 }} />
+            {secondaryListItems}
+          </List>
+        </Drawer> */}

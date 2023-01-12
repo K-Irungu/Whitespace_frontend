@@ -8,129 +8,70 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+
 import Paper from '@mui/material/Paper';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { mainListItems, secondaryListItems, avatar } from '../components/ListItems';
 import Navbar from '../components/Navbar';
+import Typography from '@mui/material/Typography';
+import background from "../background.jpeg"
 
 
-const drawerWidth = 240;
 
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    '& .MuiDrawer-paper': {
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      width: drawerWidth,
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      boxSizing: 'border-box',
-      ...(!open && {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      }),
-    },
-  }),
-);
 
 const mdTheme = createTheme();
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
-function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => { setOpen(!open) };
 
+const Home = () => {
   return (
+  
     <ThemeProvider theme={mdTheme}>
       <Navbar props="home" />
-      <Box sx={{ display: 'flex' }}>
 
-        {/* Drawer on left side */}
-        {/* <Drawer variant="permanent" open={open}>
-          <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: [2.3] }} >
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <Item>xs=8</Item>
+        </Grid>
+      </Grid>
 
-            <IconButton onClick={toggleDrawer}>
-            {open? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
-          </Toolbar>
-          
-          <List component="nav">
-            {avatar}
-          </List>
-          <Divider />
+              {/* Container 1 */}
+              {/* <Grid item xs={12} md={8} lg={9}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: 240 }}></Paper>
+              </Grid> */}
 
-          <List component="nav">
-            {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
-          </List>
-        </Drawer> */}
+              {/* Container 2 */}
+              {/* <Grid item xs={6} md={4} lg={3}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: 240 }} ></Paper>
+              </Grid> */}
+
+              {/* Container 3 */}
+              {/* <Grid item xs={12}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}></Paper>
+              </Grid> */}
 
 
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
-          }}
-        >
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-
-                </Paper>
-              </Grid>
-              {/* Students */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-
-                </Paper>
-              </Grid>
+          {/* <Grid container component="main" sx={{ height: '100vh' }}>
+            <Grid>
+              
             </Grid>
-          </Container>
-        </Box>
-      </Box>
+          </Grid> */}
+
+      
+
     </ThemeProvider>
-  );
+);
 }
 
-export default function Home() {
-  return <DashboardContent />;
-}
+export default Home
+
+

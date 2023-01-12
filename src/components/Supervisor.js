@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import MuiDrawer from '@mui/material/Drawer';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
@@ -8,131 +7,125 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { mainListItems, secondaryListItems, avatar } from './ListItems';
+// import { mainListItems, avatar } from './ListItems';
 import Navbar from './Navbar';
+import MyTasks from './MyTasks';
+import MyStudents from './MyStudents';
+import Lecturers from './Lecturers';
+
+import { Typography } from '@mui/material';
+import { Drawer } from "./Drawer"
 
 
-const drawerWidth = 240;
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    '& .MuiDrawer-paper': {
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      width: drawerWidth,
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      boxSizing: 'border-box',
-      ...(!open && {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      }),
-    },
-  }),
-);
 
-const mdTheme = createTheme();
-
-function DashboardContent() {
+function Supervisor() {
+  const mdTheme = createTheme();
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => { setOpen(!open) };
 
+  const [drawerClickInfo, setDrawerClickInfo] = React.useState("MyTasks")
+  const [displayedItem, setDisplayedItem] = React.useState(<MyTasks />)
+
+  React.useEffect(()=>{
+    if(drawerClickInfo === "My Tasks") { setDisplayedItem(<MyTasks />) }
+    else if (drawerClickInfo === "My Students") { setDisplayedItem(<MyStudents />) }
+    else if (drawerClickInfo === "Lecturers") { setDisplayedItem(<Lecturers />) }
+  },
+  [drawerClickInfo])
+
+
+
+const avatar = (
+  <React.Fragment>
+      <ListItemButton onClick={(event)=>setDrawerClickInfo(event.target.textContent)}>
+          <ListItemIcon>
+              <AccountCircleIcon />
+          </ListItemIcon>
+          <ListItemText>
+              Supervisor 1
+          </ListItemText>
+      </ListItemButton>
+
+  </React.Fragment>
+)
+
+const drawerButtons = (
+  <React.Fragment>
+    <ListItemButton onClick={(event)=>setDrawerClickInfo(event.target.textContent)}>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="My Tasks" />
+    </ListItemButton>
+
+    <Divider sx={{ my: 1 }} />
+
+    <ListItemButton onClick={(event)=>setDrawerClickInfo(event.target.textContent)}>
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="My Students" />
+    </ListItemButton>
+
+    <Divider sx={{ my: 1 }} />
+    
+    <ListItemButton onClick={(event)=>setDrawerClickInfo(event.target.textContent)}>
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Lecturers" />
+    </ListItemButton>
+
+  </React.Fragment>
+);
+
   return (
     <ThemeProvider theme={mdTheme}>
+      {/* Navigation Bar */}
       <Navbar user="supervisor"/>
+      
+      {/* Main surface for displayed items */}
       <Box sx={{ display: 'flex' }}>
+        {/* Left hand side drawer  */}
         <Drawer variant="permanent" open={open}>
           <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: [2.3] }} >
-
-            <IconButton onClick={toggleDrawer}>
-            {open? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
+            <IconButton onClick={toggleDrawer}> {open? <ChevronLeftIcon /> : <ChevronRightIcon />} </IconButton>
           </Toolbar>
-          
-          <List component="nav">
-            {avatar}
-          </List>
-          <Divider />
-
-          <List component="nav">
-            {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
-          </List>
+          <List component="nav"> {avatar} </List>
+          <Divider sx={{ my: 1 }} />
+          <List component="nav"> {drawerButtons} </List>
         </Drawer>
 
-
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
-          }}
-        >
-          <Toolbar />
+        {/* Table */}
+        <Box component="main" sx={{  backgroundColor: (theme) => theme.palette.grey[100], flexGrow: 1, height: '100vh', overflow: 'auto'}}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={3}> 
 
 
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
+              {/* <MyTasks /> 
+              <MyStudents />
+              <Lecturers /> */}
 
-                </Paper>
-              </Grid>
+              { displayedItem }
 
-
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-
-
-                </Paper>
-              </Grid>
-              {/* Students */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-
-                </Paper>
-              </Grid>
             </Grid>
           </Container>
         </Box>
       </Box>
+
     </ThemeProvider>
   );
 }
 
-export default function Supervisor() {
-  return <DashboardContent />;
-}
+export default Supervisor;
+

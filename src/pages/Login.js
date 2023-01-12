@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navbar from '../components/Navbar';
 import { CssBaseline } from '@mui/material';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 
 // Copyright information
@@ -41,8 +42,9 @@ export default function Login() {
       {/* Navigation Bar */}
       <Navbar props="login" />
 
-      {/* Image on left side */}
       <Grid container component="main" sx={{ height: '100vh' }}>
+
+        {/* Image on left side */}
         <Grid
           item
           xs={false}
@@ -55,8 +57,9 @@ export default function Login() {
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-          }}
-        />
+          }}>
+
+        </Grid>
 
         {/* Sign in form on right side */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>

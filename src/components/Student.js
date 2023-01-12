@@ -11,36 +11,12 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { mainListItems2, secondaryListItems2, avatar2 } from './ListItems';
+import { mainListItems2, avatar2 } from './ListItems';
 import Navbar from './Navbar';
+import  MyTasks  from './MyTasks';
+import { Drawer } from "./Drawer";
 
-const drawerWidth = 240;
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    '& .MuiDrawer-paper': {
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      width: drawerWidth,
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      boxSizing: 'border-box',
-      ...(!open && {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      }),
-    },
-  }),
-);
 
 const mdTheme = createTheme();
 
@@ -50,81 +26,34 @@ function DashboardContent() {
 
   return (
     <ThemeProvider theme={mdTheme}>
+      {/* Navigation Bar */}
       <Navbar user="student"/>
+
+      {/* Main items for displayed items */}
       <Box sx={{ display: 'flex' }}>
+        {/* Left hand side drawer */}
         <Drawer variant="permanent" open={open}>
           <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', px: [2.3] }} >
-
-            <IconButton onClick={toggleDrawer}>
-            {open? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
+            <IconButton onClick={toggleDrawer}> {open? <ChevronLeftIcon /> : <ChevronRightIcon />} </IconButton>
           </Toolbar>
-          
-          <List component="nav">
-            {avatar2}
-          </List>
-          <Divider />
-
-          <List component="nav">
-            {mainListItems2}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems2}
-          </List>
+          <List component="nav"> {avatar2} </List>
+          <Divider sx={{ my: 1 }} />
+          <List component="nav">{mainListItems2}</List>
         </Drawer>
 
-
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
-          }}
-        >
-          <Toolbar />
+        {/* Tasks Table*/}
+        <Box component="main" sx={{ backgroundColor: (theme) => theme.palette.grey[100], flexGrow: 1, eight: '100vh', overflow: 'auto' }}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
+            <Grid container spacing={3}> 
 
-                </Paper>
+            
+              <MyTasks /> 
               </Grid>
-
-
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-
-                </Paper>
-              </Grid>
-              {/* Students */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-
-                </Paper>
-              </Grid>
-            </Grid>
           </Container>
         </Box>
       </Box>
+
+    
     </ThemeProvider>
   );
 }
