@@ -20,7 +20,7 @@ export default function CreateTaskForm({ setSuccess, handleClose }) {
   const [students, setStudents] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("/students")
+    fetch("https://whitespacebackend-production.up.railway.app/students")
       .then((res) => res.json())
       .then(setStudents);
   }, []);

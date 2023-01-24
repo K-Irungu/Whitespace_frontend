@@ -41,7 +41,7 @@ export default function Login({setPerson}) {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
 
-        fetch("/login", {
+        fetch("https://whitespacebackend-production.up.railway.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json ",

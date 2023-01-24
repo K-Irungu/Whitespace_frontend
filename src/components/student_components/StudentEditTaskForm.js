@@ -23,7 +23,7 @@ export default function StudentEditTaskForm({  setEditSuccess,
     console.log("this task has been editted!")
 
     
-    fetch(`tasks/${taskId}`, {
+    fetch(`https://whitespacebackend-production.up.railway.app/tasks/${taskId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

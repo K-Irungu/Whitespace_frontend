@@ -7,7 +7,7 @@ export default function StudentTasksGrid({ studentId, handleClose }) {
   const [tasks, setTasks] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`/students/${studentId}`)
+    fetch(`https://whitespacebackend-production.up.railway.app/students/${studentId}`)
       .then((r) => r.json())
       .then((data) => setTasks(data.tasks));
   }, []);

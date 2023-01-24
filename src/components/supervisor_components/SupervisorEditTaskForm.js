@@ -20,7 +20,7 @@ export default function SupervisorEditTaskForm({
     });
     console.log("This task has been editted!");
 
-    fetch(`tasks/${taskId}`, {
+    fetch(`https://whitespacebackend-production.up.railway.app/tasks/${taskId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -17,7 +17,7 @@ export default function CreateLecturerForm({ setSuccess, handleClose }) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    fetch("/lecturers", {
+    fetch("https://whitespacebackend-production.up.railway.app/lecturers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

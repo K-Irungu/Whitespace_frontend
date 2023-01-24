@@ -13,7 +13,7 @@ export default function DeleteLecturerConfirmationAlert({
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`/lecturers/${lecturerId}`, {
+    fetch(`https://whitespacebackend-production.up.railway.app/lecturers/${lecturerId}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

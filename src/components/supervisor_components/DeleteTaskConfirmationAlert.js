@@ -13,7 +13,7 @@ export default function DeleteTaskConfirmationAlert({
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`/tasks/${taskId}`, {
+    fetch(`https://whitespacebackend-production.up.railway.app/tasks/${taskId}`, {
       method: "DELETE",
     }).then(setDeleteSuccess("Success! Task has been removed"));
 

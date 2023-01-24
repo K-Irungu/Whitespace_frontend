@@ -24,7 +24,7 @@ export default function CreateStudentForm( {setSuccess, handleClose}) {
   const [lecturers, setLecturers] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("/lecturers")
+    fetch("https://whitespacebackend-production.up.railway.app/lecturers")
       .then((res) => res.json())
       .then(setLecturers);
   }, []);

@@ -11,7 +11,7 @@ export default function DeleteStudentonfirmationAlert({   setDeleteSuccess, stud
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`/students/${studentId}`, {
+    fetch(`https://whitespacebackend-production.up.railway.app/students/${studentId}`, {
       method: "DELETE"
     }).then(setDeleteSuccess("Success! Student has been removed"));
     handleClose()
