@@ -9,7 +9,7 @@ import Lecturer from "./users/Lecturer";
 
 function App() {
   const [person, setPerson] = React.useState();
-
+  console.log(person)
   const signedInUser = localStorage.getItem("role");
 
   return (
