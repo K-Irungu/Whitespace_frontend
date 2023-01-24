@@ -30,7 +30,7 @@ export default function CreateTaskForm({ setSuccess, handleClose }) {
     const data = new FormData(event.currentTarget);
     const supervisorId = localStorage.getItem("user_id");
 
-    fetch("/tasks", {
+    fetch("https://whitespacebackend-production.up.railway.app/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
