@@ -1,31 +1,35 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Reviews from "./pages/Reviews";
-import Contact from "./pages/Contact";
-import Supervisor from "./components/Supervisor";
-import Student from "./components/Student";
-import CssBaseline from '@mui/material/CssBaseline';
-import Login from "./pages/Login";
+import CssBaseline from "@mui/material/CssBaseline";
+import Navbar from "./components/common/Navbar";
+import Login from "./components/common/Login";
+import Supervisor from "./users/Supervisor";
+import Student from "./users/Student";
+import Lecturer from "./users/Lecturer";
 
 function App() {
+  const [person, setPerson] = React.useState();
+
+  const signedInUser = localStorage.getItem("role");
+
   return (
     <Router>
       <CssBaseline />
+      <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/Home" component={Home} />
-        <Route path="/About" component={About} />
-        <Route path="/Reviews" component={Reviews} />
-        <Route path="/Contact" component={Contact} />
-        <Route path="/supervisor" component={Supervisor} />
-        <Route path="/student" component={Student} />
-        <Route path="/login" component={Login} />
+        <Route path="/">
+          {signedInUser === "supervisor" ? (
+            <Supervisor setPerson={setPerson}></Supervisor>
+          ) : signedInUser === "student" ? (
+            <Student setPerson={setPerson}></Student>
+          ) : signedInUser === "lecturer" ? (
+            <Lecturer setPerson={setPerson}></Lecturer>
+          ) : (
+            <Login setPerson={setPerson}></Login>
+          )}
+        </Route>
       </Switch>
-
     </Router>
-
   );
 }
 
