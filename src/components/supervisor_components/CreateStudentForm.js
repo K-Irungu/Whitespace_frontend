@@ -36,7 +36,7 @@ export default function CreateStudentForm( {setSuccess, handleClose}) {
     const supervisorId = localStorage.getItem("user_id");
 
 
-    fetch("/students", {
+    fetch("https://whitespacebackend-production.up.railway.app/students", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
