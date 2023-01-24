@@ -27,7 +27,7 @@ function Supervisor({ setPerson }) {
   const user_id = localStorage.getItem("user_id");
 
   React.useEffect(() => {
-    fetch(`/supervisors/${user_id}`)
+    fetch(`https://whitespacebackend-production.up.railway.app/supervisors/${user_id}`)
       .then((r) => r.json())
       .then((data) => {
         setTasks(data.tasks);

@@ -27,7 +27,7 @@ function Student({setPerson}) {
     const user_id = localStorage.getItem("user_id");
 
     React.useEffect(() => {
-        fetch(`/students/${user_id}`).then((r) => r.json()).then((data) => {
+        fetch(`https://whitespacebackend-production.up.railway.app/students/${user_id}`).then((r) => r.json()).then((data) => {
             setTasks(data.tasks);
             setSupervisors(data.supervisor);
             setLecturers(data.lecturer);

@@ -24,7 +24,7 @@ function Lecturer({ setPerson }) {
   console.log(user_id);
 
   React.useEffect(() => {
-    fetch(`/lecturers/${user_id}`)
+    fetch(`https://whitespacebackend-production.up.railway.app/lecturers/${user_id}`)
       .then((r) => r.json())
       .then((data) => setStudents(data.students));
   }, []);
