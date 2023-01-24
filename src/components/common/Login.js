@@ -82,7 +82,7 @@ export default function Login({setPerson}) {
                     md={7}
                     sx={
                         {
-                            backgroundImage: "url(https://images.unsplash.com/photo-1504019853082-9a4cb128c1ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                            backgroundImage: "url(https://images.unsplash.com/photo-1473864803180-ca1b3d93c9a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80)",
                             backgroundRepeat: "no-repeat",
                             backgroundColor: (t) => t.palette.grey[50],
                             backgroundSize: "cover",
