@@ -2,7 +2,7 @@
   "name": "whitespace_frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://whitespacebackend-production.up.railway.app/",
+  "proxy": "https://whitespacebackend-production.up.railway.app/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
