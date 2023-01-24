@@ -34,7 +34,7 @@ function Supervisor({ setPerson }) {
         setStudents(data.students);
       });
 
-      fetch("/lecturers")
+      fetch("https://whitespacebackend-production.up.railway.app/lecturers")
       .then((r) => r.json())
       .then(setLecturers)
 
