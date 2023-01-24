@@ -1,9 +1,7 @@
 import React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
+
 
 export default function StudentTasksGrid({ studentId, handleClose }) {
   const [tasks, setTasks] = React.useState([]);
