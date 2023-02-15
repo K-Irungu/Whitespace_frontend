@@ -12,3 +12,18 @@ The first version of work that is expected must meet the following metrics:
 - Students can update profile: A student can update his profile settings and his profile picture. He can also change the notification settings 
 - Students can add a solution to the task: A student can add a solution about a task. 
 - Students can add comments: A student can add comments about a task. The system should send a report to the university lecture on the tasks the student has worked on.
+
+## Live Link
+https://whimsical-licorice-2e18e2.netlify.app/
+
+## Login details for demo purposes
+Supervisor:
+email - briannmanu@gmil.com
+
+Lecturer: 
+email - emanu@gmail.com
+
+Student:
+email - manu1@gmail.com
+
+Password for the above users - 123456789
