@@ -18,12 +18,12 @@ https://whimsical-licorice-2e18e2.netlify.app/
 
 ## Login details for demo purposes
 Supervisor:
-email - briannmanu@gmil.com
+email - norma.spencer@gmail.com
 
 Lecturer: 
-email - emanu@gmail.com
+email - georgetta@gmail.com
 
 Student:
-email - manu1@gmail.com
+email - krystyna@hotmail.com
 
 Password for the above users - 123456789
